@@ -1,6 +1,18 @@
 <?php
 date_default_timezone_set("America/Santiago");
 
+$horario = new mysqli('localhost', 'root', '', 'date_report');
+
+$key = "m_a_" . date("dmY") . "_" . date("His");
+
+$reporte = "m_a_inicio";
+
+$date = date("d/m/Y");
+
+$hour = date("H:i:s");
+
+$horario->query("insert into horario values ('$key', '$reporte', '$date', '$hour')");
+
 ini_set("max_execution_time", 0);
 
 $mht = odbc_connect('wms2', 'SA', 'SA');
@@ -279,33 +291,33 @@ function actualizarMHT($local, $roble, $mht, $ventas)
     $local->query("delete from retiquetado where fecha = $fecha");
 
     for($j=0; $j<$i; $j++){
-        $diasret = $retiquetado[$j][0];
-        $llave = $retiquetado[$j][1];
-        $fecingret = $retiquetado[$j][2];
-        $pm = $retiquetado[$j][3];
-        $locn_brcd = $retiquetado[$j][4];
-        $detalle = $retiquetado[$j][5];
-        $negocio = $retiquetado[$j][6];
-        $division = $retiquetado[$j][7];
-        $dep = $retiquetado[$j][8];
-        $desdep = $retiquetado[$j][9];
-        $subdep = $retiquetado[$j][10];
-        $cla = $retiquetado[$j][11];
-        $descla = $retiquetado[$j][12];
-        $estilo = $retiquetado[$j][13];
-        $skuc = $retiquetado[$j][14];
-        $sku_desc = $retiquetado[$j][15];
-        $codmar = $retiquetado[$j][16];
-        $estacion = $retiquetado[$j][17];
-        $tempor = $retiquetado[$j][18];
-        $dessdp = $retiquetado[$j][19];
-        $vendor = $retiquetado[$j][20];
-        $nomprv = $retiquetado[$j][21];
+        $diasret    = $retiquetado[$j][0];
+        $llave      = $retiquetado[$j][1];
+        $fecingret  = $retiquetado[$j][2];
+        $pm         = $retiquetado[$j][3];
+        $locn_brcd  = $retiquetado[$j][4];
+        $detalle    = $retiquetado[$j][5];
+        $negocio    = $retiquetado[$j][6];
+        $division   = $retiquetado[$j][7];
+        $dep        = $retiquetado[$j][8];
+        $desdep     = $retiquetado[$j][9];
+        $subdep     = $retiquetado[$j][10];
+        $cla        = $retiquetado[$j][11];
+        $descla     = $retiquetado[$j][12];
+        $estilo     = $retiquetado[$j][13];
+        $skuc       = $retiquetado[$j][14];
+        $sku_desc   = $retiquetado[$j][15];
+        $codmar     = $retiquetado[$j][16];
+        $estacion   = $retiquetado[$j][17];
+        $tempor     = $retiquetado[$j][18];
+        $dessdp     = $retiquetado[$j][19];
+        $vendor     = $retiquetado[$j][20];
+        $nomprv     = $retiquetado[$j][21];
         $diferencia = $retiquetado[$j][22];
-        $cosprom = $retiquetado[$j][23];
+        $cosprom    = $retiquetado[$j][23];
         $disponible = $retiquetado[$j][24];
-        $prenor = $retiquetado[$j][25];
-        $preofe = $retiquetado[$j][26];
+        $prenor     = $retiquetado[$j][25];
+        $preofe     = $retiquetado[$j][26];
 
         $insertar = "insert into retiquetado values($fecha,
                                                     $diasret,
@@ -594,3 +606,15 @@ else
     echo "Error. <br>";
 
 $local->query("update estado set state = 0 where state = 1");
+
+$horario = new mysqli('localhost', 'root', '', 'date_report');
+
+$key = "m_a_" . date("dmY") . "_" . date("His");
+
+$reporte = "m_a_fin";
+
+$date = date("d/m/Y");
+
+$hour = date("H:i:s");
+
+$horario->query("insert into horario values ('$key', '$reporte', '$date', '$hour')");

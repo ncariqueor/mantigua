@@ -2,7 +2,7 @@
 
 function reEtiquetado($local, $dia)
 {
-    date_default_timezone_set("America/Asuncion");
+    date_default_timezone_set("America/Santiago");
 
     $local->query("delete from tabla_retiquetado where dia = $dia");
 

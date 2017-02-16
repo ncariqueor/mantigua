@@ -25,7 +25,6 @@
                 var year = document.getElementById("anio").value;
                 var day = document.getElementById("dia").value;
                 document.getElementById("exportar").href = "exportar2.php?mes="+month+"&anio="+year+"&dia="+day+"&tipo=base";
-                document.getElementById("exportar2").href = "exportar2.php?mes="+month+"&anio="+year+"&dia="+day+"&tipo=ret";
                 document.getElementById("exportar3").href = "exportar2.php?mes="+month+"&anio="+year+"&dia="+day+"&tipo=comercial";
             }
         </script>
@@ -725,9 +724,7 @@
                             <a id="exportar" class="btn btn-success btn-sm" href="#">Exportar Base MHT</a>
                         </div>
 
-                        <div class="col-lg-1">
-                            <a id="exportar2" class="btn btn-success btn-sm" href="#">Exportar Re-etiquetado</a>
-                        </div>
+                        
 
                     </form>
                 </div>

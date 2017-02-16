@@ -117,7 +117,7 @@
                         $("#submit").attr('class', 'btn btn-warning').attr('value', "Espere... Cargando ubicación y actualizando datos.");
                     },
                     success: function(msg){
-                        if(msg != '¡Actualización exitosa!')
+                        if(msg != '¡Locación se agregó correctamente!')
                             $("#submit").attr('class', 'btn btn-danger').attr('value', msg);
                         else
                             $("#submit").attr('class', 'btn btn-success').attr('value', msg);
